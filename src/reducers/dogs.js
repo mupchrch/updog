@@ -9,10 +9,14 @@ function shuffleArray(array) {
 const dogs = (state = [], action) => {
   switch (action.type) {
     case 'INIT_DOGS':
-      const doubleDogs = [...action.dogs, ...action.dogs];
-      shuffleArray(doubleDogs);
+      let duplicateDogs = [];
+      for (let i=0; i<action.dogsPerMatch; i++) {
+        duplicateDogs = [...duplicateDogs, ...action.dogs];
+      }
 
-      return doubleDogs.map((dog, i) => {
+      shuffleArray(duplicateDogs);
+
+      const dogs = duplicateDogs.map((dog, i) => {
         return {
           id: i,
           url: dog,
@@ -20,21 +24,25 @@ const dogs = (state = [], action) => {
           isMatched: false
         };
       });
+
+      return dogs;
     case 'TOGGLE_DOG':
       const i = state.findIndex(item => item.id === action.id);
-      const newState = [...state];
-      newState[i].isSelected = !newState[i].isSelected;
+      const newDogs = [...state];
+      newDogs[i].isSelected = !newDogs[i].isSelected;
 
       // check match
-      if (newState[i].isSelected) {
+      if (newDogs[i].isSelected) {
         // see if currently selected items match
-        const validMatch = newState.filter(item => item.isSelected).every((item, i, arr) => item.url === arr[0].url);
-        // if they do then check if they're all selected
-        if (validMatch) {
-          const potentialMatches = newState.filter(item => item.url === newState[i].url);
-          const completeMatch = potentialMatches.every(item => item.isSelected);
+        const isValidMatch = newDogs.filter(item => item.isSelected).every((item, i, arr) => item.url === arr[0].url);
 
-          if (completeMatch) {
+        if (isValidMatch) {
+          // check if they're all selected
+          const potentialMatches = newDogs.filter(item => item.url === newDogs[i].url);
+          const isCompleteMatch = potentialMatches.every(item => item.isSelected);
+
+          if (isCompleteMatch) {
+            // clear selections and flag as matched
             potentialMatches.forEach(item => {
               item.isMatched = true;
               item.isSelected = false;
@@ -42,14 +50,13 @@ const dogs = (state = [], action) => {
           }
         } else {
           // clear out all selections
-          return newState.map(item => {
-            item.isSelected = false;
-            return item;
-          });
+          newDogs.forEach(item => item.isSelected = false);
         }
       }
 
-      return newState;
+      return newDogs;
+    case 'CLEAR_DOGS':
+      return [];
     default:
       return state;
   }

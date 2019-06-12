@@ -1,5 +1,9 @@
 .board {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: auto;
+  width: 100vw; 
+  height: 100vw; /* 100/56.25 = 1.778 */
+  max-height: calc(100vh - 24px);
+  max-width: calc(100vh - 24px); /* 16/9 = 1.778 */
 }

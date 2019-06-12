@@ -2,20 +2,22 @@ import React from 'react';
 import './Dog.css';
 
 function Dog({ id, url, isSelected, isMatched, onDogSelect }) {
-  const opacity = isSelected || isMatched ? 0.5 : 1;
-  const outline = isSelected ? '2px solid blue' : null;
-  const filter = isMatched ? 'blur(5px)' : null;
+  const style = {
+    opacity: isSelected || isMatched ? 0.5 : 1,
+    outline: isSelected ? '5px solid black' : null,
+    filter: isMatched ? 'blur(5px)' : null,
+    cursor: isMatched ? null : 'pointer',
+    backgroundImage: `url(${url})`
+  };
 
   return (
-    <div className='dog'>
-      <img
-        src={url}
-        height='200px'
-        style={{ opacity, outline, filter }}
-        onClick={() => onDogSelect(id)}
-        onDragStart={e => e.preventDefault()}
-      />
-    </div>
+    <button
+      disabled={isMatched}
+      className='dog'
+      style={style}
+      onClick={() => onDogSelect(id)}
+      onDragStart={e => e.preventDefault()}
+    />
   );
 }
 

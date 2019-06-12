@@ -4,7 +4,7 @@ import './Board.css';
 
 function Board({ dogs, ...props }) {
   return (
-    <div className="board">
+    <div className='board'>
       {
         dogs.map((dog) =>
           <Dog

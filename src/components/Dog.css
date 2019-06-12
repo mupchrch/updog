@@ -1,3 +1,5 @@
 .dog {
-  flex-basis: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
 }
