@@ -2,9 +2,9 @@ import React from 'react';
 import Dog from './Dog';
 import './Board.css';
 
-function Board({ dogs, ...props }) {
+function Board({ dogs, numColumns, ...props }) {
   return (
-    <div className='board'>
+    <div className='board' style={{ gridTemplateColumns: `repeat(${numColumns}, 1fr)` }}>
       {
         dogs.map((dog) =>
           <Dog

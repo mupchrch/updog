@@ -6,11 +6,15 @@ function shuffleArray(array) {
   }
 }
 
-const dogs = (state = [], action) => {
+// https://stackoverflow.com/a/43802308
+const factors = number => [...Array(number + 1).keys()]
+  .filter(i => number % i === 0);
+
+const dogs = (state = { numColumns: 4, numRows: 4, dogsPerMatch: 2, possibleDogsPerMatch: factors(16), dogs: [] }, action) => {
   switch (action.type) {
     case 'INIT_DOGS':
       let duplicateDogs = [];
-      for (let i=0; i<action.dogsPerMatch; i++) {
+      for (let i=0; i<state.dogsPerMatch; i++) {
         duplicateDogs = [...duplicateDogs, ...action.dogs];
       }
 
@@ -25,10 +29,13 @@ const dogs = (state = [], action) => {
         };
       });
 
-      return dogs;
+      return {
+        ...state,
+        dogs
+      };
     case 'TOGGLE_DOG':
-      const i = state.findIndex(item => item.id === action.id);
-      const newDogs = [...state];
+      const i = state.dogs.findIndex(item => item.id === action.id);
+      const newDogs = [...state.dogs];
       newDogs[i].isSelected = !newDogs[i].isSelected;
 
       // check match
@@ -54,9 +61,21 @@ const dogs = (state = [], action) => {
         }
       }
 
-      return newDogs;
+      return { ...state, dogs: newDogs };
     case 'CLEAR_DOGS':
-      return [];
+      return { ...state, dogs: [] };
+    case 'SET_GRID':
+      return {
+        ...state,
+        numColumns: action.numColumns,
+        numRows: action.numRows,
+        possibleDogsPerMatch: factors(action.numColumns * action.numRows)
+      }
+    case 'SET_DOGS_PER_MATCH':
+      return {
+        ...state,
+        dogsPerMatch: action.dogsPerMatch
+      }
     default:
       return state;
   }

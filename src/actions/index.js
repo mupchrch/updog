@@ -1,7 +1,6 @@
-export const initDogs = (dogs, dogsPerMatch) => ({
+export const initDogs = dogs => ({
   type: 'INIT_DOGS',
-  dogs,
-  dogsPerMatch
+  dogs
 });
 
 export const toggleDog = id => ({
@@ -11,4 +10,15 @@ export const toggleDog = id => ({
 
 export const clearDogs = () => ({
   type: 'CLEAR_DOGS'
+});
+
+export const setGrid = (numColumns, numRows) => ({
+  type: 'SET_GRID',
+  numColumns,
+  numRows
+});
+
+export const setDogsPerMatch = dogsPerMatch => ({
+  type: 'SET_DOGS_PER_MATCH',
+  dogsPerMatch
 });
