@@ -65,11 +65,18 @@ const dogs = (state = { numColumns: 4, numRows: 4, dogsPerMatch: 2, possibleDogs
     case 'CLEAR_DOGS':
       return { ...state, dogs: [] };
     case 'SET_GRID':
+      const possibleDogsPerMatch = factors(action.numColumns * action.numRows);
+      let dogsPerMatch = state.dogsPerMatch;
+      if (!possibleDogsPerMatch.includes(dogsPerMatch)) {
+        dogsPerMatch = possibleDogsPerMatch[0];
+      }
+    
       return {
         ...state,
         numColumns: action.numColumns,
         numRows: action.numRows,
-        possibleDogsPerMatch: factors(action.numColumns * action.numRows)
+        possibleDogsPerMatch,
+        dogsPerMatch
       }
     case 'SET_DOGS_PER_MATCH':
       return {
