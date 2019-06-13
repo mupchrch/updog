@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/updog/static/css/main.f18c3fb0.chunk.css",
-    "main.js": "/updog/static/js/main.57a08d1e.chunk.js",
-    "main.js.map": "/updog/static/js/main.57a08d1e.chunk.js.map",
+    "main.css": "/updog/static/css/main.a2f2ca3c.chunk.css",
+    "main.js": "/updog/static/js/main.6de192bb.chunk.js",
+    "main.js.map": "/updog/static/js/main.6de192bb.chunk.js.map",
     "runtime~main.js": "/updog/static/js/runtime~main.013c9109.js",
     "runtime~main.js.map": "/updog/static/js/runtime~main.013c9109.js.map",
-    "static/js/2.a2fc8bd5.chunk.js": "/updog/static/js/2.a2fc8bd5.chunk.js",
-    "static/js/2.a2fc8bd5.chunk.js.map": "/updog/static/js/2.a2fc8bd5.chunk.js.map",
+    "static/js/2.2224fec9.chunk.js": "/updog/static/js/2.2224fec9.chunk.js",
+    "static/js/2.2224fec9.chunk.js.map": "/updog/static/js/2.2224fec9.chunk.js.map",
     "index.html": "/updog/index.html",
-    "precache-manifest.c9d03294a5f49a44a5171aac371a3697.js": "/updog/precache-manifest.c9d03294a5f49a44a5171aac371a3697.js",
+    "precache-manifest.14e84350433461f05be71070250056a9.js": "/updog/precache-manifest.14e84350433461f05be71070250056a9.js",
     "service-worker.js": "/updog/service-worker.js",
-    "static/css/main.f18c3fb0.chunk.css.map": "/updog/static/css/main.f18c3fb0.chunk.css.map"
+    "static/css/main.a2f2ca3c.chunk.css.map": "/updog/static/css/main.a2f2ca3c.chunk.css.map"
   }
 }
