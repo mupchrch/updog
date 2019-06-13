@@ -34,9 +34,13 @@ function App({ initDogs, setGrid, setDogsPerMatch, onReplay, dogs, numColumns, n
       <div className='input-header'>
         <fieldset>
           <legend>Board size:</legend>
-          <input type='number' min={0} max={10} value={numColumns} onChange={handleNumColumns} />
+          <select value={numColumns} onChange={handleNumColumns}>
+            {[...Array(10).keys()].map(i => <option key={i+1} value={i+1}>{i+1}</option>)}
+          </select>
           x
-          <input type='number' min={0} max={10} value={numRows} onChange={handleNumRows} />
+          <select value={numRows} onChange={handleNumRows}>
+            {[...Array(10).keys()].map(i => <option key={i+1} value={i+1}>{i+1}</option>)}
+          </select>
         </fieldset>
         <label>Amount per match:
           <select id='dogsPerMatch' value={dogsPerMatch} onChange={handleDogsPerMatch}>
