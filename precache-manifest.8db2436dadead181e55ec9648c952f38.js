@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b327c73a6c609ee79518ef561ce28d53",
+    "revision": "2de53416350f20553e5070657beacaf5",
     "url": "/updog/index.html"
   },
   {
-    "revision": "746cbf6b5cbe213f5679",
+    "revision": "006a18e49e29a924d707",
     "url": "/updog/static/css/main.a2f2ca3c.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/updog/static/js/2.844e35f3.chunk.js"
   },
   {
-    "revision": "746cbf6b5cbe213f5679",
-    "url": "/updog/static/js/main.54569ea9.chunk.js"
+    "revision": "006a18e49e29a924d707",
+    "url": "/updog/static/js/main.bd578a8e.chunk.js"
   },
   {
     "revision": "88b8a7ba382e52ab828d",
