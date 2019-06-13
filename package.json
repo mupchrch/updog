@@ -1,5 +1,6 @@
 {
   "name": "updog",
+  "homepage": "https://mupchrch.github.io/updog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
