@@ -1,6 +1,6 @@
-# Updog
+# updog
 
-Updog is a simple picture match game. It was a means to get familiar with Redux. It queries [Dog API](https://dog.ceo/dog-api/documentation/random) for the cute pups.
+A simple picture match game. It was a means to get familiar with Redux. It queries [Dog API](https://dog.ceo/dog-api/documentation/random) for the cute pups.
 
 ![updog demo](https://github.com/mupchrch/updog/raw/master/demo.gif)
 
